@@ -4,27 +4,28 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name="businesses")
+@Entity(name = "businesses")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="business_type", discriminatorType = DiscriminatorType.STRING)
 public abstract class Business {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    public Long id;
 
     @Column(name="title")
-    private String title;
+    public String title;
 
     @Column(name="summary")
-    private String summary;
+    public String summary;
 
     @Column(name="tag")
-    private String tag;
+    public String tag;
 
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name="user_id", nullable = false)
-    private User user;
+    public User user;
 
 
 //    photo

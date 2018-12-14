@@ -1,18 +1,23 @@
 package com.example.brysonservice.Models;
 
-import javax.persistence.Column;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.persistence.*;
+
+@Entity
+@DiscriminatorValue("Attraction")
 public class Attraction extends Business {
 
     @Column(name ="price")
     private int price;
+
 
     public Attraction(String title, String summary, String tag, User user, int price) {
         super(title, summary, tag, user);
         this.price = price;
     }
 
-    public Attraction(int price) {
+    public Attraction() {
     }
 
     public int getPrice() {

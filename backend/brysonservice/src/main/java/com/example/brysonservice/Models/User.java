@@ -21,12 +21,12 @@ public class User {
 
     @JsonIgnore
     @OneToMany(mappedBy = "user", fetch=FetchType.LAZY)
+//    @Column(name="business")
     private List<Business> businesses;
 
-    public User(String name, String role, List<Business> businesses) {
+    public User(String name, String role) {
         this.name = name;
         this.role = role;
-        this.businesses = businesses;
     }
 
     public User() {

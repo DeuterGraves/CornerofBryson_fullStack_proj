@@ -1,7 +1,11 @@
 package com.example.brysonservice.Models;
 
-import javax.persistence.Column;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.persistence.*;
+
+@Entity
+@DiscriminatorValue("Restaurant")
 public class Restaurant extends Business {
 
     @Column(name="price_range")
@@ -9,6 +13,7 @@ public class Restaurant extends Business {
 
     @Column(name="cuisine")
     private String cuisine;
+
 
     public Restaurant(String title, String summary, String tag, User user, int priceRange, String cuisine) {
         super(title, summary, tag, user);
@@ -34,4 +39,5 @@ public class Restaurant extends Business {
     public void setCuisine(String cuisine) {
         this.cuisine = cuisine;
     }
+
 }
