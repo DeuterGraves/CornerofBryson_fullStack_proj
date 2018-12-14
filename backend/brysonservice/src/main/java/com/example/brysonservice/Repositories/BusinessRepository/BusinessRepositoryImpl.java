@@ -67,4 +67,20 @@ public class BusinessRepositoryImpl {
 
     }
 
+    @Transactional
+    public List<Business> getBusinessByType(String type){
+        List<Business> results = null;
+        Session session = entityManager.unwrap(Session.class);
+        try{
+            Criteria criteria = session.createCriteria(Business.class);
+            criteria.add(Restrictions.ilike("type", type));
+            results = criteria.list();
+        } catch (HibernateException ex) {
+            ex.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return results;
+    }
+
 }

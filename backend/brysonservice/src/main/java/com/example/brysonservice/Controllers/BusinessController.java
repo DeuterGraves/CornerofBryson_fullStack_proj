@@ -32,5 +32,10 @@ public class BusinessController {
         return businessRepository.getBusinessByCuisine(cuisine);
     }
 
+    @GetMapping(value = "/type/{type}")
+    public List<Business> getBusinessByType(@PathVariable String type){
+        return businessRepository.getBusinessByType(type);
+    }
+
 
 }

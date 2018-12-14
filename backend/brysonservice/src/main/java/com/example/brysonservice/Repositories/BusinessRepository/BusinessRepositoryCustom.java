@@ -16,6 +16,6 @@ public interface BusinessRepositoryCustom {
 //    get reviews by cuisine
     List<Business> getBusinessByCuisine(String cuisine);
 //
-////    get review by type
-//    List<Business> getBusinessByType(String type);
+//    get review by type
+    List<Business> getBusinessByType(String type);
 }
