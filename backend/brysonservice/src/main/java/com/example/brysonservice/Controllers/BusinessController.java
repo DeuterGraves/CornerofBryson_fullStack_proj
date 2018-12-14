@@ -22,5 +22,10 @@ public class BusinessController {
         return businessRepository.getBusinessByTag(tag);
     }
 
+    @GetMapping(value = "/host/{id}")
+    public List<Business> getBusinessByHost(@PathVariable Long id){
+        return businessRepository.getBusinessByHost(id);
+    }
+
 
 }

@@ -10,8 +10,8 @@ public interface BusinessRepositoryCustom {
 //    Get review by tag
     List<Business> getBusinessByTag(String tag);
 
-////    get reviews by host
-//    List<Business> getBusinessByHost(User user);
+//    get reviews by host
+    List<Business> getBusinessByHost(Long id);
 //
 ////    get reviews by cuisine
 //    List<Business> getBusinessByCuisine(String cuisine);
