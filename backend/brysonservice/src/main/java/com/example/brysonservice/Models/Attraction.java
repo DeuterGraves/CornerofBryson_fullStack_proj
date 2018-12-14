@@ -27,4 +27,6 @@ public class Attraction extends Business {
     public void setPrice(int price) {
         this.price = price;
     }
+
+
 }
