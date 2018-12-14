@@ -12,9 +12,9 @@ public interface BusinessRepositoryCustom {
 
 //    get reviews by host
     List<Business> getBusinessByHost(Long id);
-//
-////    get reviews by cuisine
-//    List<Business> getBusinessByCuisine(String cuisine);
+
+//    get reviews by cuisine
+    List<Business> getBusinessByCuisine(String cuisine);
 //
 ////    get review by type
 //    List<Business> getBusinessByType(String type);

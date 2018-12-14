@@ -50,4 +50,21 @@ public class BusinessRepositoryImpl {
         return results;
     }
 
+    @Transactional
+    public List<Business> getBusinessByCuisine(String cuisine){
+        List<Business> results = null;
+        Session session = entityManager.unwrap(Session.class);
+        try{
+            Criteria criteria = session.createCriteria(Business.class);
+            criteria.add(Restrictions.ilike("cuisine", cuisine));
+            results = criteria.list();
+        } catch (HibernateException ex) {
+            ex.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return results;
+
+    }
+
 }
