@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name="business")
 @DiscriminatorValue("Shop")
 public class Shop extends Business {
 
@@ -14,7 +14,6 @@ public class Shop extends Business {
 
     public Shop(String title, String summary, String tag, User user, String type) {
         super(title, summary, tag, user);
-        this.user = user;
         this.type = type;
     }
 
