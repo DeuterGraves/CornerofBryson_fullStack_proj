@@ -153,7 +153,9 @@ public class Review {
     public String getShortDate(){
         LocalDateTime longTime = this.getCreateDateTime();
         String longDate = longTime.toString();
-        return longDate.substring(0,10);
+        String date = longDate.substring(0,10);
+        String time = longDate.substring(11, 19);
+        return date + " " + time;
     }
 
     //    location(address?lat/long?)
