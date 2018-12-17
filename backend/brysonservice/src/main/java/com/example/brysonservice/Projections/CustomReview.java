@@ -7,8 +7,8 @@ import org.springframework.data.rest.core.config.Projection;
 
 import java.time.LocalDateTime;
 
-@Projection(name="embedUser", types = Review.class)
-public interface UserProjection {
+@Projection(name="customReview", types = Review.class)
+public interface CustomReview {
     Long getId();
     String getTitle();
     String getSummary();
