@@ -150,6 +150,12 @@ public class Review {
         this.user = user;
     }
 
+    public String getShortDate(){
+        LocalDateTime longTime = this.getCreateDateTime();
+        String longDate = longTime.toString();
+        return longDate.substring(0,10);
+    }
+
     //    location(address?lat/long?)
 //    date - how will you handle this?
 
