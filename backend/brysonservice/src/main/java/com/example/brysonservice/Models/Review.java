@@ -2,12 +2,14 @@ package com.example.brysonservice.Models;
 
 import com.example.brysonservice.Enums.BusinessTag;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
-@Table(name="businesses")
-public class Business {
+@Table(name="reviews")
+public class Review {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,21 +30,36 @@ public class Business {
     @Column(name="tag")
     private BusinessTag tag;
 
+    @Column(name="photo")
+    private String photo;
+
+    @Column(name="reviewText")
+    private String reviewText;
+
+    @Column(name="address")
+    private String address;
+
+    @CreationTimestamp
+    private LocalDateTime createDateTime;
+
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name="user_id", nullable = false)
     private User user;
 
-    public Business(String title, String summary, String type, int price, BusinessTag tag, User user) {
+    public Review(String title, String summary, String type, int price, BusinessTag tag, String photo, String reviewText, String address, User user) {
         this.title = title;
         this.summary = summary;
         this.type = type;
         this.price = price;
         this.tag = tag;
+        this.photo = photo;
+        this.reviewText = reviewText;
+        this.address = address;
         this.user = user;
     }
 
-    public Business() {
+    public Review() {
     }
 
     public Long getId() {
@@ -93,6 +110,38 @@ public class Business {
         this.tag = tag;
     }
 
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public String getReviewText() {
+        return reviewText;
+    }
+
+    public void setReviewText(String reviewText) {
+        this.reviewText = reviewText;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public LocalDateTime getCreateDateTime() {
+        return createDateTime;
+    }
+
+    public void setCreateDateTime(LocalDateTime createDateTime) {
+        this.createDateTime = createDateTime;
+    }
+
     public User getUser() {
         return user;
     }
@@ -101,9 +150,7 @@ public class Business {
         this.user = user;
     }
 
-    //    photo
-//    fulltext
-//    location(address?lat/long?)
+    //    location(address?lat/long?)
 //    date - how will you handle this?
 
 

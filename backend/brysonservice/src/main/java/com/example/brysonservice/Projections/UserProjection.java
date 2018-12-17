@@ -1,13 +1,11 @@
 package com.example.brysonservice.Projections;
 
 import com.example.brysonservice.Enums.BusinessTag;
-import com.example.brysonservice.Models.Business;
+import com.example.brysonservice.Models.Review;
 import com.example.brysonservice.Models.User;
 import org.springframework.data.rest.core.config.Projection;
 
-import java.util.List;
-
-@Projection(name="embedUser", types = Business.class)
+@Projection(name="embedUser", types = Review.class)
 public interface UserProjection {
     Long getId();
     String getTitle();
@@ -15,5 +13,8 @@ public interface UserProjection {
     String getType();
     int getPrice();
     BusinessTag getTag();
+    String getPhoto();
+    String getReviewText();
+    String getAddress();
     User getUser();
 }

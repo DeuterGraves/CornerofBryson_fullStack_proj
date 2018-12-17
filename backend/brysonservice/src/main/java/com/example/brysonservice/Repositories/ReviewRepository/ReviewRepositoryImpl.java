@@ -1,8 +1,7 @@
-package com.example.brysonservice.Repositories.BusinessRepository;
+package com.example.brysonservice.Repositories.ReviewRepository;
 
 import com.example.brysonservice.Enums.BusinessTag;
-import com.example.brysonservice.Models.Business;
-import com.example.brysonservice.Models.User;
+import com.example.brysonservice.Models.Review;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -13,17 +12,17 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import java.util.List;
 
-public class BusinessRepositoryImpl {
+public class ReviewRepositoryImpl {
 
     @Autowired
     EntityManager entityManager;
 
     @Transactional
-    public List<Business> getBusinessByTag(BusinessTag tag){
-        List<Business> results = null;
+    public List<Review> getReviewByTag(BusinessTag tag){
+        List<Review> results = null;
         Session session = entityManager.unwrap(Session.class);
         try{
-            Criteria criteria = session.createCriteria(Business.class);
+            Criteria criteria = session.createCriteria(Review.class);
             criteria.add(Restrictions.eq("tag", tag));
             results = criteria.list();
         } catch(HibernateException ex){
@@ -35,11 +34,11 @@ public class BusinessRepositoryImpl {
     }
 
     @Transactional
-    public List<Business> getBusinessByHost(Long id) {
-        List<Business> results = null;
+    public List<Review> getReviewByHost(Long id) {
+        List<Review> results = null;
         Session session = entityManager.unwrap(Session.class);
         try {
-            Criteria criteria = session.createCriteria(Business.class);
+            Criteria criteria = session.createCriteria(Review.class);
             criteria.createAlias("user", "user");
             criteria.add(Restrictions.eq("user.id", id));
             results = criteria.list();
@@ -52,11 +51,11 @@ public class BusinessRepositoryImpl {
     }
 
     @Transactional
-    public List<Business> getBusinessByType(String type){
-        List<Business> results = null;
+    public List<Review> getReviewByType(String type){
+        List<Review> results = null;
         Session session = entityManager.unwrap(Session.class);
         try{
-            Criteria criteria = session.createCriteria(Business.class);
+            Criteria criteria = session.createCriteria(Review.class);
             criteria.add(Restrictions.ilike("type", type));
             results = criteria.list();
         } catch (HibernateException ex) {

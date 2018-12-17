@@ -21,8 +21,7 @@ public class User {
 
     @JsonIgnore
     @OneToMany(mappedBy = "user", fetch=FetchType.LAZY)
-//    @Column(name="business")
-    private List<Business> businesses;
+    private List<Review> reviews;
 
     public User(String name, String role) {
         this.name = name;
@@ -56,11 +55,11 @@ public class User {
         this.role = role;
     }
 
-    public List<Business> getBusinesses() {
-        return businesses;
+    public List<Review> getReviews() {
+        return reviews;
     }
 
-    public void setBusinesses(List<Business> businesses) {
-        this.businesses = businesses;
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 }
