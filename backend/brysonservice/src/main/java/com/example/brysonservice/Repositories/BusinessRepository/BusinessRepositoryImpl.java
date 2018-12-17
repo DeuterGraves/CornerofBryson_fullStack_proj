@@ -1,5 +1,6 @@
 package com.example.brysonservice.Repositories.BusinessRepository;
 
+import com.example.brysonservice.Enums.BusinessTag;
 import com.example.brysonservice.Models.Business;
 import com.example.brysonservice.Models.User;
 import org.hibernate.Criteria;
@@ -18,7 +19,7 @@ public class BusinessRepositoryImpl {
     EntityManager entityManager;
 
     @Transactional
-    public List<Business> getBusinessByTag(String tag){
+    public List<Business> getBusinessByTag(BusinessTag tag){
         List<Business> results = null;
         Session session = entityManager.unwrap(Session.class);
         try{
@@ -51,23 +52,6 @@ public class BusinessRepositoryImpl {
     }
 
     @Transactional
-    public List<Business> getBusinessByCuisine(String cuisine){
-        List<Business> results = null;
-        Session session = entityManager.unwrap(Session.class);
-        try{
-            Criteria criteria = session.createCriteria(Business.class);
-            criteria.add(Restrictions.ilike("cuisine", cuisine));
-            results = criteria.list();
-        } catch (HibernateException ex) {
-            ex.printStackTrace();
-        } finally {
-            session.close();
-        }
-        return results;
-
-    }
-
-    @Transactional
     public List<Business> getBusinessByType(String type){
         List<Business> results = null;
         Session session = entityManager.unwrap(Session.class);
@@ -81,6 +65,8 @@ public class BusinessRepositoryImpl {
             session.close();
         }
         return results;
+
     }
+
 
 }

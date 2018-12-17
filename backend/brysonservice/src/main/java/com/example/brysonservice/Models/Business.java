@@ -1,42 +1,43 @@
 package com.example.brysonservice.Models;
 
+import com.example.brysonservice.Enums.BusinessTag;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
-@Entity(name = "businesses")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="business_type", discriminatorType = DiscriminatorType.STRING)
-public abstract class Business {
+@Entity
+@Table(name="businesses")
+public class Business {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    private Long id;
 
     @Column(name="title")
-    public String title;
+    private String title;
 
     @Column(name="summary")
-    public String summary;
+    private String summary;
+
+    @Column(name="type")
+    private String type;
+
+    @Column(name ="price")
+    private int price;
 
     @Column(name="tag")
-    public String tag;
+    private BusinessTag tag;
 
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name="user_id", nullable = false)
-    public User user;
+    private User user;
 
-
-//    photo
-//    fulltext
-//    location(address?lat/long?)
-//    date - how will you handle this?
-
-
-    public Business(String title, String summary, String tag, User user) {
+    public Business(String title, String summary, String type, int price, BusinessTag tag, User user) {
         this.title = title;
         this.summary = summary;
+        this.type = type;
+        this.price = price;
         this.tag = tag;
         this.user = user;
     }
@@ -68,11 +69,27 @@ public abstract class Business {
         this.summary = summary;
     }
 
-    public String getTag() {
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public BusinessTag getTag() {
         return tag;
     }
 
-    public void setTag(String tag) {
+    public void setTag(BusinessTag tag) {
         this.tag = tag;
     }
 
@@ -83,4 +100,11 @@ public abstract class Business {
     public void setUser(User user) {
         this.user = user;
     }
+
+    //    photo
+//    fulltext
+//    location(address?lat/long?)
+//    date - how will you handle this?
+
+
 }

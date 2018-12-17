@@ -1,5 +1,6 @@
 package com.example.brysonservice.Controllers;
 
+import com.example.brysonservice.Enums.BusinessTag;
 import com.example.brysonservice.Models.Business;
 import com.example.brysonservice.Repositories.BusinessRepository.BusinessRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class BusinessController {
     BusinessRepository businessRepository;
 
     @GetMapping(value = "/tag/{tag}")
-    public List<Business> getBusinessByTag(@PathVariable String tag){
+    public List<Business> getBusinessByTag(@PathVariable BusinessTag tag){
         return businessRepository.getBusinessByTag(tag);
     }
 
@@ -27,10 +28,6 @@ public class BusinessController {
         return businessRepository.getBusinessByHost(id);
     }
 
-    @GetMapping(value = "/cuisine/{cuisine}")
-    public List<Business> getBusinessByCuisine(@PathVariable String cuisine){
-        return businessRepository.getBusinessByCuisine(cuisine);
-    }
 
     @GetMapping(value = "/type/{type}")
     public List<Business> getBusinessByType(@PathVariable String type){
