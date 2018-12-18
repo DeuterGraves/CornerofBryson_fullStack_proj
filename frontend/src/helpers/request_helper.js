@@ -1,9 +1,8 @@
-class Request {
+class RequestHelper {
 
   get(url) {
-    console.log(url);
     return fetch(url)
-    .then((res) => console.log(res.json()));
+    .then((res) => res.json());
   }
 
   post(url, payload){
@@ -31,4 +30,4 @@ class Request {
 
 }
 
-export default Request;
+export default RequestHelper;

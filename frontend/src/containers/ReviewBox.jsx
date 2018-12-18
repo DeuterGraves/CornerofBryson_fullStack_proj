@@ -1,7 +1,7 @@
 import React from 'react';
 import ReviewList from '../components/reviews/ReviewList.jsx';
 
-import Request from "../helpers/request.js";
+import RequestHelper from "../helpers/request_helper.js";
 
 class ReviewBox extends React.Component{
   constructor(props){
@@ -12,10 +12,11 @@ class ReviewBox extends React.Component{
   }
 
   componentDidMount(){
-    let request = new Request()
-    request.get('/reviews').then((data) =>{
+    let request = new RequestHelper()
+    request.get('/api/reviews').then((data) =>{
       this.setState({reviews:data._embedded.reviews})
     })
+    .catch(console.error);
   }
 
   render(){

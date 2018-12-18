@@ -28,7 +28,6 @@ public class ReviewController {
         return reviewRepository.getReviewByHost(id);
     }
 
-
     @GetMapping(value = "/type/{type}")
     public List<Review> getReviewByType(@PathVariable String type){
         return reviewRepository.getReviewByType(type);
