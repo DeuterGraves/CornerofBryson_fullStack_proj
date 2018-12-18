@@ -8,16 +8,17 @@ const BusinessTagSelect = (props) =>{
   const uniqueOptions = options.filter((option, optionIndex, optionsArray)=> optionsArray.indexOf(option) === optionIndex);
   console.log('uniqueOptions', uniqueOptions);
 
- const newOptions = uniqueOptions.map((option) =>{
-    return <option key={option.index} value={option}>{option}</option>
+ const newOptions = uniqueOptions.map((option, optionIndex) =>{
+    return <option key={optionIndex} value={option}>{option}</option>
 })
 
-  function handleTagSelectChange(event){
+  function handleTagSelect(event){
     props.onTagSelected(event.target.value);
+    // get the value of the event and callon tag selected from above.
   }
 
   return(
-    <select id='tag-selector' defaultValue='all' onChange={handleTagSelectChange}>
+    <select id='tag-selector' defaultValue='all' onChange={handleTagSelect}>
     <option value='all'>Filter by Business Type</option>
     {newOptions}
     </select>

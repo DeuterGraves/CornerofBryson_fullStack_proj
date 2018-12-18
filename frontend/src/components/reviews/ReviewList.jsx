@@ -1,6 +1,6 @@
 import React from 'react';
 import Review from './Review.jsx';
-import BusinessTagSelect from './BusinessTagSelect.jsx';
+// import BusinessTagSelect from './BusinessTagSelect.jsx';
 
 const ReviewList = (props) =>{
 
@@ -12,9 +12,8 @@ const ReviewList = (props) =>{
   .filter((review) => props.showTag === 'all' || review.tag === props.showTag)
   .map((review) =>{
     return(
-      <div>
+      <div key={review.id}>
       <Review
-      key={review.id}
       title={review.title}
       summary={review.summary}
       photo={review.photo}
@@ -25,12 +24,12 @@ const ReviewList = (props) =>{
   })
 
 
+  // < BusinessTagSelect onTagSelected={props.onTagSelected}
+  // reviews = {(props.reviews)}
+  // />
 
   return(
     <div>
-    < BusinessTagSelect onTagSelected={props.onTagSelected}
-    reviews = {(props.reviews)}
-    />
     {reviews}
     </div>
   )

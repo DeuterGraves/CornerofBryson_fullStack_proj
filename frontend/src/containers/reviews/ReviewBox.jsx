@@ -1,6 +1,7 @@
 import React from 'react';
 import ReviewList from '../../components/reviews/ReviewList.jsx';
 import Header from '../../components/Header.jsx';
+import BusinessTagSelect from '../../components/reviews/BusinessTagSelect.jsx';
 
 import RequestHelper from "../../helpers/request_helper.js";
 
@@ -30,6 +31,7 @@ class ReviewBox extends React.Component{
     return(
       <div>
       <Header />
+      <BusinessTagSelect onTagSelected={this.onTagSelected} reviews = {(this.state.reviews)}/>
       <ReviewList showTag={this.state.filter} reviews = {this.state.reviews} onTagSelected={this.onTagSelected}/>
       </div>
     )
