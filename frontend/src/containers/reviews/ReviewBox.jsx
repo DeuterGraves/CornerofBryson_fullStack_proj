@@ -8,8 +8,14 @@ class ReviewBox extends React.Component{
   constructor(props){
     super(props);
     this.state ={
-      reviews:[]
+      reviews:[],
+      filter: 'all'
     }
+    this.setTagFilter = this.setTagFilter.bind(this);
+  }
+
+  setTagFilter(tag) {
+    this.setState({filter: tag });
   }
 
   componentDidMount(){
@@ -24,7 +30,7 @@ class ReviewBox extends React.Component{
     return(
       <div>
       <Header />
-      <ReviewList reviews = {this.state.reviews} />
+      <ReviewList showTag={this.state.filter} reviews = {this.state.reviews} onTagSelected={this.setTagFilter}/>
       </div>
     )
   }

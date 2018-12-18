@@ -8,7 +8,9 @@ const ReviewList = (props) =>{
     return null;
   };
 
-  const reviews = props.reviews.map((review) =>{
+  const reviews = props.reviews
+  .filter((review) => props.showTag === 'all' || review.tag === props.showTag)
+  .map((review) =>{
     return(
       <div>
       <Review
@@ -22,9 +24,13 @@ const ReviewList = (props) =>{
     )
   })
 
+
+
   return(
     <div>
-    < BusinessTagSelect reviews = {(props.reviews)} />
+    < BusinessTagSelect onTagSelected={props.onTagSelected}
+    reviews = {(props.reviews)}
+    />
     {reviews}
     </div>
   )
