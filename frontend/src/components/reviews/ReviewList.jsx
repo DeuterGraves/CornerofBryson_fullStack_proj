@@ -1,6 +1,5 @@
 import React from 'react';
 import Review from './Review.jsx';
-// import BusinessTagSelect from './BusinessTagSelect.jsx';
 
 const ReviewList = (props) =>{
 
@@ -18,15 +17,11 @@ const ReviewList = (props) =>{
       summary={review.summary}
       photo={review.photo}
       tag = {review.tag}
-       />
+      id = {review.id}
+      onReviewSelected={props.onReviewSelected} />
       </div>
     )
   })
-
-
-  // < BusinessTagSelect onTagSelected={props.onTagSelected}
-  // reviews = {(props.reviews)}
-  // />
 
   return(
     <div>
