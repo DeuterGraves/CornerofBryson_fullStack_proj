@@ -1,7 +1,8 @@
 import React from 'react';
-import ReviewList from '../components/reviews/ReviewList.jsx';
+import ReviewList from '../../components/reviews/ReviewList.jsx';
+import Header from '../../components/Header.jsx';
 
-import RequestHelper from "../helpers/request_helper.js";
+import RequestHelper from "../../helpers/request_helper.js";
 
 class ReviewBox extends React.Component{
   constructor(props){
@@ -22,7 +23,7 @@ class ReviewBox extends React.Component{
   render(){
     return(
       <div>
-      Review Box!
+      <Header />
       <ReviewList reviews = {this.state.reviews} />
       </div>
     )

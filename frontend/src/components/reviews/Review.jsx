@@ -1,11 +1,13 @@
 import React from 'react';
 
-const Review = (props) =>{
+const Review = ({key, title, summary, photo}) =>{
 
 
   return(
     <React.Fragment>
-    <p>A Review!</p>
+    <p>{title}</p>
+    <img src={photo} alt={summary} height="250" />
+    <p>{summary}</p>
     </React.Fragment>
   )
 }
