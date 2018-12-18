@@ -3,6 +3,7 @@ import React from 'react';
 const SingleReview =(props)=>{
 
   if (props.tag === "ATTRACTION"){
+
   return(
     <React.Fragment>
     <p>{props.title}</p>
@@ -15,9 +16,9 @@ const SingleReview =(props)=>{
     <p>review: {props.reviewText}</p>
     </React.Fragment>
   )
-}
 
-  if (props.tag === "SHOP"){
+} else if (props.tag === "SHOP"){
+  
     return(
       <React.Fragment>
       <p>{props.title}</p>
@@ -29,9 +30,9 @@ const SingleReview =(props)=>{
       <p>review: {props.reviewText}</p>
       </React.Fragment>
     )
-  }
 
-  if (props.tag === "RESTAURANT"){
+  } else if (props.tag === "RESTAURANT"){
+
     let restPrice = null
     if (props.price <= 10){
       restPrice = "£"
@@ -57,6 +58,20 @@ const SingleReview =(props)=>{
       <p>review: {props.reviewText}</p>
       </React.Fragment>
     )
+
+  } else {
+
+    return (
+    <React.Fragment>
+    <p>{props.title}</p>
+    <p>by {props.author}</p>
+    <div className="info-box">
+      <img src={props.photo} alt={props.summary} height="250" />
+      <p>Address: {props.address}</p>
+    </div>
+    <p>review: {props.reviewText}</p>
+    </React.Fragment>
+  )
   }
 
 }
