@@ -4,6 +4,18 @@ import SingleReview from './SingleReview.jsx';
 
 const ReviewList = (props) =>{
 
+  const onDelete = () => {
+    props.handleReviewDelete(props.review.id)
+  }
+
+  const onEdit = () => {
+    props.handleEdit(props.review.id)
+  }
+
+  const onBack = ()  =>{
+    props.handleReviewBack()
+  }
+
   if (!props.reviews)  {
     return null;
   };
@@ -53,6 +65,9 @@ const ReviewList = (props) =>{
         address ={review.address}
         reviewText = {review.reviewText}
         author = {review.user.name}/>
+        <button onClick={onDelete}>Delete Review</button>
+        <button onClick={onEdit}>Edit Review</button>
+        <button onClick={onBack}>See All Reviews</button>
         </div>
       )
     })

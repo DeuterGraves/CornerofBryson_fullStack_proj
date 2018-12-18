@@ -15,7 +15,27 @@ class ReviewBox extends React.Component{
     }
     this.onTagSelected = this.onTagSelected.bind(this);
     this.onReviewSelected = this.onReviewSelected.bind(this);
+    this.handleReviewBack = this.handleReviewBack.bind(this);
   }
+
+  handleReviewDelete(id){
+    const request = new RequestHelper();
+    const url = '/api/reviews' + id;
+    request.delete(url).then(() =>{
+      // show all (remaining)reviews
+      this.setState({filer: 'all'});
+      this.setState({list: true});
+      this.setState({singleReview: 0});
+    })
+  }
+
+  handleReviewBack(){
+    this.setState({filer: 'all'});
+    this.setState({list: true});
+    this.setState({singleReview: 0});
+  }
+
+
 
   onTagSelected(tag) {
     this.setState({filter: tag });
@@ -45,7 +65,9 @@ class ReviewBox extends React.Component{
       <ReviewList
       showTag={this.state.filter}
       reviews = {this.state.reviews} onTagSelected={this.onTagSelected} onReviewSelected={this.onReviewSelected}
-      singleReview ={this.state.singleReview}/>
+      singleReview ={this.state.singleReview}
+      handleReviewBack = {this.handleReviewBack}
+      />
       </div>
     )
   }
