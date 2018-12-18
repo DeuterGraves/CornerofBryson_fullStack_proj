@@ -23,6 +23,7 @@ class ReviewBox extends React.Component{
 
   onReviewSelected(id){
     this.setState({singleReview: id})
+    this.setState({list: false})
   }
 
   componentDidMount(){
