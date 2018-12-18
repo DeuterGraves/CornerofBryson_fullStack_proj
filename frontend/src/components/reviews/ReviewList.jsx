@@ -7,6 +7,8 @@ const ReviewList = (props) =>{
     return null;
   };
 
+console.log("singleReview", props.singleReview);
+if (props.singleReview === 0){
   const reviews = props.reviews
   .filter((review) => props.showTag === 'all' || review.tag === props.showTag)
   .map((review) =>{
@@ -28,6 +30,14 @@ const ReviewList = (props) =>{
     {reviews}
     </div>
   )
+}else{
+
+  return(
+    <p> review picked</p>
+  )
+
+}
+
 }
 
 export default ReviewList;

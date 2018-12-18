@@ -11,7 +11,7 @@ class ReviewBox extends React.Component{
       reviews:[],
       filter: 'all',
       list: true,
-      singleReview: null
+      singleReview: 0
     }
     this.onTagSelected = this.onTagSelected.bind(this);
     this.onReviewSelected = this.onReviewSelected.bind(this);
@@ -39,8 +39,12 @@ class ReviewBox extends React.Component{
 
     return(
       <div>
-      {this.state.list && <BusinessTagSelect onTagSelected={this.onTagSelected} reviews = {(this.state.reviews)} />}
-      <ReviewList showTag={this.state.filter} reviews = {this.state.reviews} onTagSelected={this.onTagSelected} onReviewSelected={this.onReviewSelected}/>
+      {this.state.list && <BusinessTagSelect onTagSelected={this.onTagSelected}
+      reviews = {(this.state.reviews)} />}
+      <ReviewList
+      showTag={this.state.filter}
+      reviews = {this.state.reviews} onTagSelected={this.onTagSelected} onReviewSelected={this.onReviewSelected}
+      singleReview ={this.state.singleReview}/>
       </div>
     )
   }
