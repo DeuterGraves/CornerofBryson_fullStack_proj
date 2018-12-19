@@ -126,7 +126,7 @@ const ReviewList = (props) =>{
         reviewText = {review.reviewText}
         author = {review.user.name}
         user_id = {review.user_id}
-        handleReviewPost={review.handleReviewPost}
+        handleReviewPatch={props.handleReviewPatch}
         />
         </div>
       )

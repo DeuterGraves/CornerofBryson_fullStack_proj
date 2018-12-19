@@ -18,6 +18,7 @@ class ReviewBox extends React.Component{
     this.onReviewSelected = this.onReviewSelected.bind(this);
     this.handleReviewBack = this.handleReviewBack.bind(this);
     this.handleReviewPost = this.handleReviewPost.bind(this);
+    this.handleReviewPatch = this.handleReviewPatch.bind(this);
     this.onNewReview = this.onNewReview.bind(this);
     this.onEditReview = this.onEditReview.bind(this);
   }
@@ -51,6 +52,17 @@ class ReviewBox extends React.Component{
     console.log("review", review);
     const request = new RequestHelper();
     request.post('/api/reviews', review).then(() => {
+      this.setState({filter: 'all'});
+      this.setState({list: true});
+      this.setState({singleReview: 0});
+    })
+  }
+
+  handleReviewPatch(review){
+    console.log("review edit", review);
+    console.log("single review for edit", this.state.singleReview);
+    const request = new RequestHelper();
+    request.patch('/api/reviews/' + this.state.singleReview, review).then(() => {
       this.setState({filter: 'all'});
       this.setState({list: true});
       this.setState({singleReview: 0});
@@ -95,6 +107,7 @@ class ReviewBox extends React.Component{
       handleReviewBack = {this.handleReviewBack}
       formType={this.state.formType}
       handleReviewPost = {this.handleReviewPost}
+      handleReviewPatch = {this.handleReviewPatch}
       onEditReview = {this.onEditReview}
       />
       </div>

@@ -2,7 +2,7 @@ import React from 'react';
 
 const EditReview = (props) => {
 
-  function handleReviewSubmit(event){
+  function handleReviewEditSubmit(event){
     event.preventDefault();
     const review = {
       "address": event.target.address.value,
@@ -15,7 +15,7 @@ const EditReview = (props) => {
       "type": event.target.type.value,
       "user": '/api/users/' + event.target.user_id.value
     }
-    props.handleReviewPost(review)
+    props.handleReviewPatch(review)
   }
 
 // create user objects {id: props.user_id, name: props.user.name} then get unique user objects for the drop down so that you can have both a name and a userid.
@@ -41,7 +41,7 @@ const EditReview = (props) => {
 
 return (
   <div>
-    <form onSubmit={handleReviewSubmit}>
+    <form onSubmit={handleReviewEditSubmit}>
     <input type="text" placeholder="Title" name="title" defaultValue={props.title} />
     <input type="text" placeholder="Review Summary" name="summary" defaultValue={props.summary} />
     <textarea placeholder="Full Review Text" name="reviewText" rows="5" cols="45" defaultValue={props.reviewText}/>
