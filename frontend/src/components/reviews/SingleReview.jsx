@@ -6,7 +6,7 @@ const SingleReview =(props)=>{
 
   return(
     <React.Fragment>
-    <p>{props.title}</p>
+    <h2>{props.title}</h2>
     <p>by {props.author}</p>
     <div className="info-box">
       <img src={props.photo} alt={props.summary} height="250" />
@@ -18,10 +18,10 @@ const SingleReview =(props)=>{
   )
 
 } else if (props.tag === "SHOP"){
-  
+
     return(
       <React.Fragment>
-      <p>{props.title}</p>
+      <h2>{props.title}</h2>
       <p>by {props.author}</p>
       <div className="info-box">
         <img src={props.photo} alt={props.summary} height="250" />
@@ -48,7 +48,7 @@ const SingleReview =(props)=>{
     }
     return(
       <React.Fragment>
-      <p>{props.title}</p>
+      <h2>{props.title}</h2>
       <p>by {props.author}</p>
       <div className="info-box">
         <img src={props.photo} alt={props.summary} height="250" />
@@ -63,7 +63,7 @@ const SingleReview =(props)=>{
 
     return (
     <React.Fragment>
-    <p>{props.title}</p>
+    <h2>{props.title}</h2>
     <p>by {props.author}</p>
     <div className="info-box">
       <img src={props.photo} alt={props.summary} height="250" />
