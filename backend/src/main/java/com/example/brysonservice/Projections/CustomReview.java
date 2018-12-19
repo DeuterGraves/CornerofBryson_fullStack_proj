@@ -19,5 +19,6 @@ public interface CustomReview {
     String getReviewText();
     String getAddress();
     User getUser();
+    Long getUserId();
     String getShortDate();
 }

@@ -158,6 +158,11 @@ public class Review {
         return date + " " + time;
     }
 
+    public Long getUserId(){
+        User thisUser = getUser();
+        return thisUser.getId();
+    }
+
     //    location(address?lat/long?)
 //    date - how will you handle this?
 

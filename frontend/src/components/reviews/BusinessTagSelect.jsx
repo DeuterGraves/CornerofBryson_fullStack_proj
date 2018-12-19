@@ -3,7 +3,7 @@ import React from 'react';
 const BusinessTagSelect = (props) =>{
 
   const options = props.reviews.map(option => option.tag);
-  console.log( 'options', options);
+  // console.log( 'options', options);
 
   const uniqueOptions = options.filter((option, optionIndex, optionsArray)=> optionsArray.indexOf(option) === optionIndex);
   console.log('uniqueOptions', uniqueOptions);
