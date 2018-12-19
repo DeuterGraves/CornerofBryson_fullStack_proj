@@ -39,6 +39,7 @@ class ReviewBox extends React.Component{
   }
 
   handleReviewPost(review){
+    console.log("review", review);
     const request = new RequestHelper();
     request.post('/api/reviews', review).then(() => {
       this.setState({filer: 'all'});
@@ -86,6 +87,7 @@ class ReviewBox extends React.Component{
       singleReview ={this.state.singleReview}
       handleReviewBack = {this.handleReviewBack}
       isNewReview={this.state.newReview}
+      handleReviewPost = {this.handleReviewPost}
       />
       </div>
     )

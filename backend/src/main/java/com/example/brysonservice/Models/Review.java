@@ -158,7 +158,7 @@ public class Review {
         return date + " " + time;
     }
 
-    public Long getUserId(){
+    public Long getuser_id(){
         User thisUser = getUser();
         return thisUser.getId();
     }

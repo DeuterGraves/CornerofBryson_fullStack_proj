@@ -81,7 +81,7 @@ const ReviewList = (props) =>{
   } else if (props.isNewReview === true){
     return(
       <div>
-      <NewReview reviews={props.reviews}/>
+      <NewReview reviews={props.reviews} handleReviewPost={props.handleReviewPost} />
       </div>
     )
   }

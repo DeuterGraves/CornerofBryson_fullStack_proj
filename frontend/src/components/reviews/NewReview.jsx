@@ -13,12 +13,12 @@ const NewReview = (props) =>{
       "tag": event.target.tag.value,
       "title": event.target.title.value,
       "type": event.target.type.value,
-      "user": event.target.user.value
+      "user_id": event.target.user_id.value
     }
     props.handleReviewPost(review)
   }
 
-  const allUserOptions = props.reviews.map(userOption => userOption.userId);
+  const allUserOptions = props.reviews.map(userOption => userOption.user_id);
 
   const uniqueUserIds = allUserOptions.filter((option, optionIndex, optionsArray) => optionsArray.indexOf(option) === optionIndex);
 
@@ -49,7 +49,7 @@ const NewReview = (props) =>{
       <select name="tag">
       {tagOptions}
       </select>
-      <select name="user">
+      <select name="user_id">
       {userOptions}
       </select>
       <button type="submit">Save</button>
