@@ -12,13 +12,14 @@ class ReviewBox extends React.Component{
       filter: 'all',
       list: true,
       singleReview: 0,
-      newReview: false
+      formType: null
     }
     this.onTagSelected = this.onTagSelected.bind(this);
     this.onReviewSelected = this.onReviewSelected.bind(this);
     this.handleReviewBack = this.handleReviewBack.bind(this);
     this.handleReviewPost = this.handleReviewPost.bind(this);
     this.onNewReview = this.onNewReview.bind(this);
+    this.onEditReview = this.onEditReview.bind(this);
   }
 
   componentDidMount(){
@@ -28,7 +29,7 @@ class ReviewBox extends React.Component{
     })
     .catch(console.error);
   }
-  
+
   handleReviewDelete(id){
     const request = new RequestHelper();
     const url = '/api/reviews' + id;
@@ -50,7 +51,7 @@ class ReviewBox extends React.Component{
     console.log("review", review);
     const request = new RequestHelper();
     request.post('/api/reviews', review).then(() => {
-      this.setState({filer: 'all'});
+      this.setState({filter: 'all'});
       this.setState({list: true});
       this.setState({singleReview: 0});
     })
@@ -68,7 +69,12 @@ class ReviewBox extends React.Component{
 
   onNewReview(){
     this.setState({list: false})
-    this.setState({newReview: true})
+    this.setState({formType: "new"})
+  }
+
+  onEditReview(id){
+    this.setState({list: false})
+    this.setState({formType: "edit"})
   }
 
 
@@ -87,8 +93,9 @@ class ReviewBox extends React.Component{
       reviews = {this.state.reviews} onTagSelected={this.onTagSelected} onReviewSelected={this.onReviewSelected}
       singleReview ={this.state.singleReview}
       handleReviewBack = {this.handleReviewBack}
-      isNewReview={this.state.newReview}
+      formType={this.state.formType}
       handleReviewPost = {this.handleReviewPost}
+      onEditReview = {this.onEditReview}
       />
       </div>
     )
