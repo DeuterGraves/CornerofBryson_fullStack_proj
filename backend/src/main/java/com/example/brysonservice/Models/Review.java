@@ -34,7 +34,7 @@ public class Review {
     @Column(name="photo")
     private String photo;
 
-    @Column(name="reviewText")
+    @Column(name="reviewText", length = 500)
     private String reviewText;
 
     @Column(name="address")
