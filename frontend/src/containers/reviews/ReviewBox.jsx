@@ -21,6 +21,14 @@ class ReviewBox extends React.Component{
     this.onNewReview = this.onNewReview.bind(this);
   }
 
+  componentDidMount(){
+    let request = new RequestHelper()
+    request.get('/api/reviews').then((data) =>{
+      this.setState({reviews:data._embedded.reviews})
+    })
+    .catch(console.error);
+  }
+  
   handleReviewDelete(id){
     const request = new RequestHelper();
     const url = '/api/reviews' + id;
@@ -63,13 +71,6 @@ class ReviewBox extends React.Component{
     this.setState({newReview: true})
   }
 
-  componentDidMount(){
-    let request = new RequestHelper()
-    request.get('/api/reviews').then((data) =>{
-      this.setState({reviews:data._embedded.reviews})
-    })
-    .catch(console.error);
-  }
 
 
 

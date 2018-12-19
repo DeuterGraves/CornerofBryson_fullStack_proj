@@ -52,7 +52,7 @@ const SingleReview =(props)=>{
       <p>by {props.author}</p>
       <div className="info-box">
         <img src={props.photo} alt={props.summary} height="250" />
-        <p> Price: {restPrice}</p>
+        <p> Price Range: {restPrice}</p>
         <p>Address: {props.address}</p>
       </div>
       <p>review: {props.reviewText}</p>

@@ -13,7 +13,7 @@ const NewReview = (props) =>{
       "tag": event.target.tag.value,
       "title": event.target.title.value,
       "type": event.target.type.value,
-      "user_id": event.target.user_id.value
+      "user": 'http://localhost:8080/api/users/' + event.target.user_id.value
     }
     props.handleReviewPost(review)
   }

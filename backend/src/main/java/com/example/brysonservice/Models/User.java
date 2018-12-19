@@ -1,6 +1,7 @@
 package com.example.brysonservice.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.List;
@@ -19,7 +20,7 @@ public class User {
     @Column(name="role")
     private String role;
 
-    @JsonIgnore
+    @JsonIgnoreProperties(value="users")
     @OneToMany(mappedBy = "user", fetch=FetchType.LAZY)
     private List<Review> reviews;
 

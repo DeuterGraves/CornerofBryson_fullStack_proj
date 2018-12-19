@@ -2,6 +2,7 @@ package com.example.brysonservice.Models;
 
 import com.example.brysonservice.Enums.BusinessTag;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -42,7 +43,7 @@ public class Review {
     @CreationTimestamp
     private LocalDateTime createDateTime;
 
-    @JsonIgnore
+    @JsonIgnoreProperties(value = "reviews")
     @ManyToOne
     @JoinColumn(name="user_id", nullable = false)
     private User user;
