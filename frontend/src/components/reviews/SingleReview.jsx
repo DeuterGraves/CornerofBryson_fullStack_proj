@@ -62,7 +62,7 @@ const SingleReview =(props)=>{
   } else {
 
     return (
-    <React.Fragment>
+    <React.Fragment >
     <h2>{props.title}</h2>
     <p>by {props.author}</p>
     <div className="info-box">

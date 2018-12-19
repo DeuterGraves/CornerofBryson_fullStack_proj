@@ -29,7 +29,7 @@ const ReviewList = (props) =>{
     .map((review) =>{
 
       return(
-        <div key={review.id}>
+        <div key={review.id} className = "review-item">
         <Review
         title={review.title}
         summary={review.summary}
@@ -43,7 +43,7 @@ const ReviewList = (props) =>{
     })
 
     return(
-      <div>
+      <div className="review-list">
       {reviews}
       </div>
     )
@@ -57,7 +57,7 @@ const ReviewList = (props) =>{
       console.log("review", review);
 
       return(
-        <div key={review.id}>
+        <div key={review.id} className = "single-review">
         <SingleReview
         title={review.title}
         summary={review.summary}
@@ -85,7 +85,7 @@ const ReviewList = (props) =>{
   } else if (props.formType === "new"){
     // console.log("running new case");
     return(
-      <div>
+      <div className = "new-form">
       <NewReview reviews={props.reviews} handleReviewPost={props.handleReviewPost} />
       <button onClick={onBack}>See All Reviews</button>
       </div>
@@ -100,7 +100,7 @@ const ReviewList = (props) =>{
       console.log("review", review);
 
       return(
-        <div key={review.id}>
+        <div key={review.id} className='edit-form'>
         <EditReview
         reviews={props.reviews}
         title={review.title}

@@ -38,7 +38,7 @@ const NewReview = (props) =>{
 
   return (
     <div>
-      <form onSubmit={handleReviewSubmit}>
+      <form onSubmit={handleReviewSubmit} className = "new-form">
       <input type="summary" placeholder="Title" name="title" />
       <input type="summary" placeholder="Review Summary" name="summary" />
       <textarea placeholder="Full Review Text" name="reviewText" rows="5" cols="45" />

@@ -41,7 +41,7 @@ const EditReview = (props) => {
 
 return (
   <div>
-    <form onSubmit={handleReviewEditSubmit}>
+    <form onSubmit={handleReviewEditSubmit} className="edit-form">
     <input type="text" placeholder="Title" name="title" defaultValue={props.title} />
     <input type="text" placeholder="Review Summary" name="summary" defaultValue={props.summary} />
     <textarea placeholder="Full Review Text" name="reviewText" rows="5" cols="45" defaultValue={props.reviewText}/>
