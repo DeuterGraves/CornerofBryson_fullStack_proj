@@ -55,6 +55,7 @@ class ReviewBox extends React.Component{
       this.setState({filter: 'all'});
       this.setState({list: true});
       this.setState({singleReview: 0});
+      this.setState({formType: null});
     })
   }
 
@@ -66,6 +67,7 @@ class ReviewBox extends React.Component{
       this.setState({filter: 'all'});
       this.setState({list: true});
       this.setState({singleReview: 0});
+      this.setState({formType: null});
     })
   }
 

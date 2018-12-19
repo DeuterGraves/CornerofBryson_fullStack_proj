@@ -6,15 +6,6 @@ import EditReview from './EditReview.jsx';
 
 const ReviewList = (props) =>{
 
-  // console.log("props reviews", props.reviews);
-  // console.log("formtype", props.formType);
-
-  // const oneReview = props.reviews
-  // .filter((review) => props.singleReview === review.id)
-  // .map((review) =>{
-  //   console.log("review", review);
-
-
   const onDelete = () => {
     props.handleReviewDelete(props.review.id)
   }
@@ -28,11 +19,6 @@ const ReviewList = (props) =>{
     props.handleReviewBack()
   }
 
-  // if (!props.reviews)  {
-  //   return null;
-  // };
-
-  // console.log("singleReview", props.singleReview);
   if ((props.singleReview === 0) && (props.formType === null) ){
 
     console.log("running all reviews  case");
@@ -140,11 +126,6 @@ const ReviewList = (props) =>{
 
   }
 
-
-
 }
-
-
-
 
 export default ReviewList;
