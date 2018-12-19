@@ -11,12 +11,14 @@ class ReviewBox extends React.Component{
       reviews:[],
       filter: 'all',
       list: true,
-      singleReview: 0
+      singleReview: 0,
+      newReview: false
     }
     this.onTagSelected = this.onTagSelected.bind(this);
     this.onReviewSelected = this.onReviewSelected.bind(this);
     this.handleReviewBack = this.handleReviewBack.bind(this);
     this.handleReviewPost = this.handleReviewPost.bind(this);
+    this.onNewReview = this.onNewReview.bind(this);
   }
 
   handleReviewDelete(id){
@@ -51,8 +53,13 @@ class ReviewBox extends React.Component{
   }
 
   onReviewSelected(id){
-    this.setState({singleReview: id})
+    this.setState({singleReview: id});
+    this.setState({list: false});
+  }
+
+  onNewReview(){
     this.setState({list: false})
+    this.setState({newReview: true})
   }
 
   componentDidMount(){
@@ -69,13 +76,16 @@ class ReviewBox extends React.Component{
 
     return(
       <div>
-      {this.state.list && <BusinessTagSelect onTagSelected={this.onTagSelected}
-      reviews = {(this.state.reviews)} />}
+      {this.state.list && <div><BusinessTagSelect onTagSelected={this.onTagSelected}
+      reviews = {(this.state.reviews)} />
+      <button onClick={this.onNewReview}>Add Review</button>
+      </div>}
       <ReviewList
       showTag={this.state.filter}
       reviews = {this.state.reviews} onTagSelected={this.onTagSelected} onReviewSelected={this.onReviewSelected}
       singleReview ={this.state.singleReview}
       handleReviewBack = {this.handleReviewBack}
+      isNewReview={this.state.newReview}
       />
       </div>
     )

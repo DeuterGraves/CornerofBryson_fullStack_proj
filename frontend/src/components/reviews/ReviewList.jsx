@@ -1,6 +1,7 @@
 import React from 'react';
 import Review from './Review.jsx';
 import SingleReview from './SingleReview.jsx';
+import NewReview from './NewReview.jsx';
 
 const ReviewList = (props) =>{
 
@@ -21,7 +22,7 @@ const ReviewList = (props) =>{
   };
 
   // console.log("singleReview", props.singleReview);
-  if (props.singleReview === 0){
+  if ((props.singleReview === 0) && (props.isNewReview === false) ){
 
     const reviews = props.reviews
     .filter((review) => props.showTag === 'all' || review.tag === props.showTag)
@@ -45,10 +46,9 @@ const ReviewList = (props) =>{
       {reviews}
       </div>
     )
-  }else{
+  }else if (props.singleReview > 0){
 
-    const onereview = props.reviews
-
+    const oneReview = props.reviews
     .filter((review) => props.singleReview === review.id)
     .map((review) =>{
       console.log("review", review);
@@ -74,11 +74,17 @@ const ReviewList = (props) =>{
 
     return(
       <div>
-      {onereview}
+      {oneReview}
       </div>
     )
 
-    }
+  } else if (props.isNewReview === true){
+    return(
+      <div>
+      <NewReview reviews={props.reviews}/>
+      </div>
+    )
+  }
 
 
 
