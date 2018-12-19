@@ -7,12 +7,13 @@ import EditReview from './EditReview.jsx';
 const ReviewList = (props) =>{
 
   const onDelete = () => {
-    props.handleReviewDelete(props.review.id)
+    // console.log("ondelete", {id});
+    props.handleReviewDelete()
   }
 
-  const onEdit = ({review}) => {
+  const onEdit = () => {
     props.onEditReview()
-    console.log("edit event value", {review});
+    // console.log("edit event value", {review});
   }
 
   const onBack = ()  =>{
@@ -21,7 +22,7 @@ const ReviewList = (props) =>{
 
   if ((props.singleReview === 0) && (props.formType === null) ){
 
-    console.log("running all reviews  case");
+    // console.log("running all reviews  case");
 
     const reviews = props.reviews
     .filter((review) => props.showTag === 'all' || review.tag === props.showTag)
@@ -48,7 +49,7 @@ const ReviewList = (props) =>{
     )
   } else if ((props.singleReview > 0) && (props.formType === null)){
 
-    console.log("running single review case");
+    // console.log("running single review case");
 
     const oneReview = props.reviews
     .filter((review) => props.singleReview === review.id)
@@ -86,11 +87,12 @@ const ReviewList = (props) =>{
     return(
       <div>
       <NewReview reviews={props.reviews} handleReviewPost={props.handleReviewPost} />
+      <button onClick={onBack}>See All Reviews</button>
       </div>
     )
   } else if (props.formType === "edit"){
-    console.log("running edit case");
-    console.log("edit props", props);
+    // console.log("running edit case");
+    // console.log("edit props", props);
 
     const oneReview = props.reviews
     .filter((review) => props.singleReview === review.id)
@@ -113,7 +115,9 @@ const ReviewList = (props) =>{
         author = {review.user.name}
         user_id = {review.user_id}
         handleReviewPatch={props.handleReviewPatch}
+        handleReviewDelete={props.handleReviewDelete}
         />
+        <button onClick={onBack}>See All Reviews</button>
         </div>
       )
     })

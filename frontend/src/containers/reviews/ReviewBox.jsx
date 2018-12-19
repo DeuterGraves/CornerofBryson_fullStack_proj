@@ -19,6 +19,7 @@ class ReviewBox extends React.Component{
     this.handleReviewBack = this.handleReviewBack.bind(this);
     this.handleReviewPost = this.handleReviewPost.bind(this);
     this.handleReviewPatch = this.handleReviewPatch.bind(this);
+    this.handleReviewDelete = this.handleReviewDelete.bind(this);
     this.onNewReview = this.onNewReview.bind(this);
     this.onEditReview = this.onEditReview.bind(this);
   }
@@ -31,44 +32,42 @@ class ReviewBox extends React.Component{
     .catch(console.error);
   }
 
-  handleReviewDelete(id){
+  handleReviewDelete(){
+    const id = this.state.singleReview;
     const request = new RequestHelper();
-    const url = '/api/reviews' + id;
-    request.delete(url).then(() =>{
-      // show all (remaining)reviews
-      this.setState({filer: 'all'});
-      this.setState({list: true});
-      this.setState({singleReview: 0});
-    })
+    const url = '/api/reviews/' + id;
+    console.log("delete url", url);
+    request.delete(url).then(() => {
+      this.componentDidMount()
+    }).then(() =>{
+      this.setState({filter: 'all', list: true, singleReview: 0, formType: null})
+    });
   }
 
   handleReviewBack(){
-    this.setState({filer: 'all'});
-    this.setState({list: true});
-    this.setState({singleReview: 0});
+    this.setState({filter: 'all', list: true, singleReview: 0, formType: null});
   }
 
   handleReviewPost(review){
     console.log("review", review);
     const request = new RequestHelper();
     request.post('/api/reviews', review).then(() => {
-      this.setState({filter: 'all'});
-      this.setState({list: true});
-      this.setState({singleReview: 0});
-      this.setState({formType: null});
-    })
+      // trigger api call get
+      this.componentDidMount()
+    }).then(() =>{
+      this.setState({filter: 'all', list: true, singleReview: 0, formType: null})
+    });
   }
 
   handleReviewPatch(review){
-    console.log("review edit", review);
-    console.log("single review for edit", this.state.singleReview);
+    // console.log("review edit", review);
+    const id = this.state.singleReview;
     const request = new RequestHelper();
-    request.patch('/api/reviews/' + this.state.singleReview, review).then(() => {
-      this.setState({filter: 'all'});
-      this.setState({list: true});
-      this.setState({singleReview: 0});
-      this.setState({formType: null});
-    })
+    request.patch('/api/reviews/' + id, review).then(() => {
+      this.componentDidMount()
+    }).then(() =>{
+      this.setState({filter: 'all', list: true, singleReview: 0, formType: null})
+    });
   }
 
 
@@ -77,18 +76,15 @@ class ReviewBox extends React.Component{
   }
 
   onReviewSelected(id){
-    this.setState({singleReview: id});
-    this.setState({list: false});
+    this.setState({singleReview: id, list: false});
   }
 
   onNewReview(){
-    this.setState({list: false})
-    this.setState({formType: "new"})
+    this.setState({list: false, formType: "new"})
   }
 
   onEditReview(id){
-    this.setState({list: false})
-    this.setState({formType: "edit"})
+    this.setState({list: false,formType: "edit"})
   }
 
 
@@ -110,6 +106,7 @@ class ReviewBox extends React.Component{
       formType={this.state.formType}
       handleReviewPost = {this.handleReviewPost}
       handleReviewPatch = {this.handleReviewPatch}
+      handleReviewDelete = {this.handleReviewDelete}
       onEditReview = {this.onEditReview}
       />
       </div>
