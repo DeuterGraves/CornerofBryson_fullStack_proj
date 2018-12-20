@@ -29,6 +29,10 @@ class ReviewBox extends React.Component{
     request.get('/api/reviews').then((data) =>{
       this.setState({reviews:data._embedded.reviews})
     })
+    // .then(() =>{
+    //   let users = this.createUsersObject();
+    //   this.createUniqueUsersObject(users);
+    // })
     .catch(console.error);
   }
 
@@ -70,6 +74,31 @@ class ReviewBox extends React.Component{
     });
   }
 
+  // createUsersObject(){
+  //   // make an object
+  //   // let userObj = {};
+  //   let reviews = this.state.reviews;
+  //   console.log("reviews", reviews);
+  //   let users =[]
+  //   for(var review of reviews){
+  //     users.push({"userName": review.user.name, "user_id": review.user_id})
+  //   }
+  //
+  //   return users;
+  // }
+  //
+  // createUniqueUsersObject(users){
+  //   let uniqueUsers = [];
+  //   for(var user in users){
+  //     if(uniqueUsers.indexOf(user) > -1){
+  //       uniqueUsers.push(user);
+  //     }
+  //   }
+  //   console.log("possibly", uniqueUsers);
+  // }
+
+
+
 
   onTagSelected(tag) {
     this.setState({filter: tag });
@@ -93,7 +122,7 @@ class ReviewBox extends React.Component{
   render(){
 
     return(
-      <div>
+      <div className="review-box">
       {this.state.list && <div><BusinessTagSelect onTagSelected={this.onTagSelected}
       reviews = {(this.state.reviews)} />
       <button onClick={this.onNewReview}>Add Review</button>

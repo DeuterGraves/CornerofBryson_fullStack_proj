@@ -42,20 +42,52 @@ const EditReview = (props) => {
 return (
   <div>
     <form onSubmit={handleReviewEditSubmit} className="edit-form">
+    <p>
+    <label for="title">Business Name:
     <input type="text" placeholder="Title" name="title" defaultValue={props.title} />
+    </label>
+&nbsp;&nbsp;&nbsp;
+  <label for="summary">Review Summary:
     <input type="text" placeholder="Review Summary" name="summary" defaultValue={props.summary} />
-    <textarea placeholder="Full Review Text" name="reviewText" rows="5" cols="45" defaultValue={props.reviewText}/>
+    </label>
+    </p>
+    <p>
+    <label for="review-text">Review Text:
+    </label>
+    </p>
+    <p>
+    <textarea placeholder="Full Review Text" name="reviewText" rows="8" cols="90" defaultValue={props.reviewText}/>
+    </p>
+    <p>
+    <label for="type">Business Type/Cuisine:
     <input type="text" placeholder="Type" name="type" defaultValue={props.type} />
+    </label>
+&nbsp;&nbsp;&nbsp;
+    <label for="photo">Photo URL:
     <input type="text" placeholder="Photo Url" name="photo" defaultValue={props.photo} />
+    </label>
+    </p>
+    <label for="price">Price (for restaurants - average price of a main course - for shops enter 0):
     <input type="number" placeholder="Price" name="price" min="0" defaultValue = {props.price}/>
+    </label>
+    <p>
+    <label for="address">Address:
     <input type="text" placeholder="Address" name="address" defaultValue={props.address} />
+    </label> &nbsp;&nbsp;&nbsp;
+    <label for="tag">Business Tag:
     <select name="tag" defaultValue={props.tag}>
     {tagOptions}
     </select>
+    </label>
+    </p>
+    <label for="user-id">Author ID:
     <select name="user_id" defaultValue={props.user_id}>
     {userOptions}
     </select>
+    </label>
+    <p>
     <button type="submit">Save</button>
+    </p>
     </form>
   </div>
 )

@@ -32,28 +32,60 @@ const NewReview = (props) =>{
   const uniqueOptions = allTagOptions.filter((option, optionIndex, optionsArray)=> optionsArray.indexOf(option) === optionIndex);
   // console.log('uniqueOptions', uniqueOptions);
 
- const tagOptions = uniqueOptions.map((option, optionIndex) =>{
+  const tagOptions = uniqueOptions.map((option, optionIndex) =>{
     return <option key={optionIndex} value={option}>{option}</option>
-})
+  })
 
   return (
     <div>
-      <form onSubmit={handleReviewSubmit} className = "new-form">
-      <input type="summary" placeholder="Title" name="title" />
-      <input type="summary" placeholder="Review Summary" name="summary" />
-      <textarea placeholder="Full Review Text" name="reviewText" rows="5" cols="45" />
-      <input type="summary" placeholder="Type" name="type" />
-      <input type="text" placeholder="Photo Url" name="photo" />
-      <input type="number" placeholder="Price" name="price" min="0" />
-      <input type="text" placeholder="Address" name="address" />
-      <select name="tag">
-      {tagOptions}
+    <form onSubmit={handleReviewSubmit} className = "new-form">
+    <p>
+    <label for="title">Business Name:
+      <input type="summary" placeholder="Title" name="title" id="title" />
+    </label>
+&nbsp;&nbsp;&nbsp;
+    <label for="summary">Review Summary:
+      <input type="summary" placeholder="Review Summary" id="summary" name="summary" />
+    </label>
+    </p>
+    <p>
+    <label for="review-text">Review Text:
+    </label>
+    </p>
+    <p>
+      <textarea placeholder="Full Review Text" id="review-type" name="reviewText" rows="8" cols="90" />
+    </p>
+    <p>
+    <label for="type">Business Type/Cuisine:
+      <input type="summary" placeholder="Type" id="type" name="type" />
+    </label>
+&nbsp;&nbsp;&nbsp;
+    <label for="photo">Photo URL:
+      <input type="text" placeholder="Photo Url" id="photo" name="photo" />
+    </label>
+    </p>
+    <label for="price">Price (for restaurants - average price of a main course - for shops enter 0):
+      <input type="number" placeholder="Price" id="price" name="price" min="0" />
+    </label>
+    <p>
+    <label for="address">Address:
+      <input type="text" placeholder="Address" id="address" name="address" />
+    </label> &nbsp;&nbsp;&nbsp;
+    <label for="tag">Business Tag:
+      <select name="tag" id="tag">
+        {tagOptions}
       </select>
-      <select name="user_id">
+    </label>
+    </p>
+    <label for="user-id">Author ID:
+      <select name="user_id" id="user-id">
       {userOptions}
       </select>
-      <button type="submit">Save</button>
-      </form>
+    </label>
+    <p>
+    <button type="submit">Save</button>
+    </p>
+    </form>
     </div>
   )
 

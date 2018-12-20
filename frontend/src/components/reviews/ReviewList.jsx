@@ -69,8 +69,8 @@ const ReviewList = (props) =>{
         reviewText = {review.reviewText}
         author = {review.user.name}
         />
-        <button value ={review.id} onClick={onDelete}>Delete Review</button>
-        <button value = {oneReview} onClick={onEdit}>Edit Review</button>
+        <button value ={review.id} onClick={onDelete}>Delete Review</button>&nbsp;&nbsp;
+        <button value = {oneReview} onClick={onEdit}>Edit Review</button> &nbsp;&nbsp;
         <button onClick={onBack}>See All Reviews</button>
         </div>
       )
