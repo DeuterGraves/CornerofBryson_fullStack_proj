@@ -68,6 +68,7 @@ const ReviewList = (props) =>{
         address ={review.address}
         reviewText = {review.reviewText}
         author = {review.user.name}
+        date = {review.shortDate}
         />
         <button value ={review.id} onClick={onDelete}>Delete Review</button>&nbsp;&nbsp;
         <button value = {oneReview} onClick={onEdit}>Edit Review</button> &nbsp;&nbsp;

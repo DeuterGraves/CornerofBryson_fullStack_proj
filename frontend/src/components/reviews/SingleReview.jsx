@@ -8,6 +8,7 @@ const SingleReview =(props)=>{
     <React.Fragment>
     <h2>{props.title}</h2>
     <p>by {props.author}</p>
+    <p className="date">{props.date}</p>
     <div className="info-box">
       <img src={props.photo} alt={props.summary} height="250" />
       <p>Price: £{props.price}</p>
@@ -23,6 +24,7 @@ const SingleReview =(props)=>{
       <React.Fragment>
       <h2>{props.title}</h2>
       <p>by {props.author}</p>
+      <p className="date">{props.date}</p>
       <div className="info-box">
         <img src={props.photo} alt={props.summary} height="250" />
         <p>Address: {props.address}</p>
@@ -50,6 +52,7 @@ const SingleReview =(props)=>{
       <React.Fragment>
       <h2>{props.title}</h2>
       <p>by {props.author}</p>
+      <p className="date">{props.date}</p>
       <div className="info-box">
         <img src={props.photo} alt={props.summary} height="250" />
         <p> Price Range: {restPrice}</p>
@@ -65,6 +68,7 @@ const SingleReview =(props)=>{
     <React.Fragment >
     <h2>{props.title}</h2>
     <p>by {props.author}</p>
+    <p className="date">{props.date}</p>
     <div className="info-box">
       <img src={props.photo} alt={props.summary} height="250" />
       <p>Address: {props.address}</p>
