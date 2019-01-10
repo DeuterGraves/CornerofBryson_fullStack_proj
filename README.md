@@ -7,7 +7,7 @@ I spent a day exploring inheritance and persistence, I tried a mapped superclass
 Given time, I will restructure this project with more containers to better handle the content and make the use of react-router more straight forward for browser history and navigation.
 s
 
-## Corner of Bryson Guide
+# Corner of Bryson Guide
 
 A local AirBnB owner has asked for webapp so they can build and maintain an online guide to the local highlights in the area for their guests.
 
