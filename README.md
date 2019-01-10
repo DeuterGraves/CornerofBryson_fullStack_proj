@@ -1,3 +1,12 @@
+A solo full stack project planned and built in ~5 working days.
+
+I spent a day exploring inheritance and persistence, I tried a mapped superclass and had more success with single table, but due to time, I had to decide to 'fail early' in order to have a finished product in time for the deadline.  I migrated to a single class for all reviews rather than an abstract class with subclasses for each type of review, and used logic on the front end to give the feel off different classes for the different types.
+
+## Next Steps
+
+Given time, I will restructure this project with more containers to better handle the content and make the use of react-router more straight forward for browser history and navigation.
+s
+
 ## Corner of Bryson Guide
 
 A local AirBnB owner has asked for webapp so they can build and maintain an online guide to the local highlights in the area for their guests.
@@ -19,10 +28,9 @@ For the front end of the website, users should be able to:
 ### Project Extensions
 * Map for locations
 * What 3 Words addresses
-* Google Sign-in so that the host can login and edit: https://developers.google.com/identity/sign-in/web/sign-in#before_you_begin
 * Search for reviews where the title includes a particular search term
 * Filter reviews by host
-* Filter reviews by category, which can be added by Corner of Bryson Hosts
+* Filter reviews by category
 * Track how many times an article has been read, and display a list of most popular reviews
 * Paginate your review list - display a certain number of reviews per page, with a page number, and navigation to go to the next and previous page
 
