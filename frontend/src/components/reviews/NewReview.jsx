@@ -40,44 +40,44 @@ const NewReview = (props) =>{
     <div>
     <form onSubmit={handleReviewSubmit} className = "new-form">
     <p>
-    <label for="title">Business Name:
+    <label htmlFor="title">Business Name:
       <input type="summary" placeholder="Title" name="title" id="title" />
     </label>
 &nbsp;&nbsp;&nbsp;
-    <label for="summary">Review Summary:
+    <label htmlFor="summary">Review Summary:
       <input type="summary" placeholder="Review Summary" id="summary" name="summary" />
     </label>
     </p>
     <p>
-    <label for="review-text">Review Text:
+    <label htmlFor="review-text">Review Text:
     </label>
     </p>
     <p>
       <textarea placeholder="Full Review Text" id="review-type" name="reviewText" rows="8" cols="90" />
     </p>
     <p>
-    <label for="type">Business Type/Cuisine:
+    <label htmlFor="type">Business Type/Cuisine:
       <input type="summary" placeholder="Type" id="type" name="type" />
     </label>
 &nbsp;&nbsp;&nbsp;
-    <label for="photo">Photo URL:
+    <label htmlFor="photo">Photo URL:
       <input type="text" placeholder="Photo Url" id="photo" name="photo" />
     </label>
     </p>
-    <label for="price">Price (for restaurants - average price of a main course - for shops enter 0):
+    <label htmlFor="price">Price (for restaurants - average price of a main course - for shops enter 0):
       <input type="number" placeholder="Price" id="price" name="price" min="0" />
     </label>
     <p>
-    <label for="address">Address:
+    <label htmlFor="address">Address:
       <input type="text" placeholder="Address" id="address" name="address" />
     </label> &nbsp;&nbsp;&nbsp;
-    <label for="tag">Business Tag:
+    <label htmlFor="tag">Business Tag:
       <select name="tag" id="tag">
         {tagOptions}
       </select>
     </label>
     </p>
-    <label for="user-id">Author ID:
+    <label htmlFor="user-id">Author ID:
       <select name="user_id" id="user-id">
       {userOptions}
       </select>

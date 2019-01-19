@@ -129,7 +129,9 @@ class ReviewBox extends React.Component{
       </div>}
       <ReviewList
       showTag={this.state.filter}
-      reviews = {this.state.reviews} onTagSelected={this.onTagSelected} onReviewSelected={this.onReviewSelected}
+      reviews = {this.state.reviews} 
+      onTagSelected={this.onTagSelected} 
+      onReviewSelected={this.onReviewSelected}
       singleReview ={this.state.singleReview}
       handleReviewBack = {this.handleReviewBack}
       formType={this.state.formType}
