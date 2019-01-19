@@ -53,10 +53,21 @@ h1{
 
 }
 
+@media(min-width: 500px){
 .review-list{
   display:grid;
   grid-template-columns: 1fr 1fr;
 }
+}
+
+
+@media(min-width: 1020px){
+  .review-list{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  }
+  
 
 .date{
   font-size: .7em;
