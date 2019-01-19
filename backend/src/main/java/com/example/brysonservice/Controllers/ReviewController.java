@@ -18,6 +18,11 @@ public class ReviewController {
     @Autowired
     ReviewRepository reviewRepository;
 
+    @GetMapping(value = "/")
+    public List<Review> getAllReviews(){
+        return reviewRepository.getAllReviews();
+    }
+
     @GetMapping(value = "/tag/{tag}")
     public List<Review> getReviewByTag(@PathVariable BusinessTag tag){
         return reviewRepository.getReviewByTag(tag);

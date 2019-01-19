@@ -5,6 +5,7 @@ import com.example.brysonservice.Models.Review;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -41,6 +42,7 @@ public class ReviewRepositoryImpl {
             Criteria criteria = session.createCriteria(Review.class);
             criteria.createAlias("user", "user");
             criteria.add(Restrictions.eq("user.id", id));
+            criteria.addOrder(Order.asc("title"));
             results = criteria.list();
         } catch (HibernateException ex) {
             ex.printStackTrace();
@@ -65,6 +67,22 @@ public class ReviewRepositoryImpl {
         }
         return results;
 
+    }
+
+    @Transactional
+    public List<Review> getAllReviews(){
+        List<Review> results = null;
+        Session session = entityManager.unwrap(Session.class);
+        try{
+            Criteria criteria = session.createCriteria(Review.class);
+            criteria.addOrder(Order.asc("title"));
+            results = criteria.list();
+        } catch (HibernateException ex) {
+            ex.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return results;
     }
 
 

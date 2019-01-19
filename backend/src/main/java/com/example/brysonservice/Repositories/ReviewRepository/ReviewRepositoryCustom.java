@@ -14,7 +14,9 @@ public interface ReviewRepositoryCustom {
     List<Review> getReviewByHost(Long id);
 
 
-//
+// get all reviews
+    List<Review> getAllReviews();
+
 //    get review by type
     List<Review> getReviewByType(String type);
 }
