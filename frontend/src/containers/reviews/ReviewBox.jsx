@@ -26,8 +26,8 @@ class ReviewBox extends React.Component{
 
   componentDidMount(){
     let request = new RequestHelper()
-    request.get('/api/reviews').then((data) =>{
-      this.setState({reviews:data._embedded.reviews})
+    request.get('/api/reviews/up').then((data) =>{
+      this.setState({reviews:data})
     })
     // .then(() =>{
     //   let users = this.createUsersObject();
