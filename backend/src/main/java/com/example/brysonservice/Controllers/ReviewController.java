@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value="/reviews")
+@RequestMapping(value="/api/reviews")
 public class ReviewController {
 
     @Autowired
     ReviewRepository reviewRepository;
 
-    @GetMapping(value = "/")
+    @GetMapping(value = "/up")
     public List<Review> getAllReviews(){
         return reviewRepository.getAllReviews();
     }

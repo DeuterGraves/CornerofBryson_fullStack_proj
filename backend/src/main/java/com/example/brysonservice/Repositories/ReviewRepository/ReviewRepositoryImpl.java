@@ -25,6 +25,7 @@ public class ReviewRepositoryImpl {
         try{
             Criteria criteria = session.createCriteria(Review.class);
             criteria.add(Restrictions.eq("tag", tag));
+            criteria.addOrder(Order.desc("createDateTime"));
             results = criteria.list();
         } catch(HibernateException ex){
             ex.printStackTrace();
@@ -42,7 +43,7 @@ public class ReviewRepositoryImpl {
             Criteria criteria = session.createCriteria(Review.class);
             criteria.createAlias("user", "user");
             criteria.add(Restrictions.eq("user.id", id));
-            criteria.addOrder(Order.asc("title"));
+            criteria.addOrder(Order.desc("createDateTime"));
             results = criteria.list();
         } catch (HibernateException ex) {
             ex.printStackTrace();
@@ -59,6 +60,7 @@ public class ReviewRepositoryImpl {
         try{
             Criteria criteria = session.createCriteria(Review.class);
             criteria.add(Restrictions.ilike("type", type));
+            criteria.addOrder(Order.desc("createDateTime"));
             results = criteria.list();
         } catch (HibernateException ex) {
             ex.printStackTrace();
@@ -75,7 +77,7 @@ public class ReviewRepositoryImpl {
         Session session = entityManager.unwrap(Session.class);
         try{
             Criteria criteria = session.createCriteria(Review.class);
-            criteria.addOrder(Order.asc("title"));
+            criteria.addOrder(Order.desc("createDateTime"));
             results = criteria.list();
         } catch (HibernateException ex) {
             ex.printStackTrace();
