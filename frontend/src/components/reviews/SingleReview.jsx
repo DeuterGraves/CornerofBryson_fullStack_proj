@@ -14,7 +14,7 @@ const SingleReview =(props)=>{
       <p>Price: £{props.price}</p>
       <p>Address: {props.address}</p>
     </div>
-    <p>review: {props.reviewText}</p>
+    <p>Review: {props.reviewText}</p>
     </React.Fragment>
   )
 
@@ -29,7 +29,7 @@ const SingleReview =(props)=>{
         <img src={props.photo} alt={props.summary} height="250" />
         <p>Address: {props.address}</p>
       </div>
-      <p>review: {props.reviewText}</p>
+      <p>Review: {props.reviewText}</p>
       </React.Fragment>
     )
 
@@ -58,7 +58,7 @@ const SingleReview =(props)=>{
         <p> Price Range: {restPrice}</p>
         <p>Address: {props.address}</p>
       </div>
-      <p>review: {props.reviewText}</p>
+      <p>Review: {props.reviewText}</p>
       </React.Fragment>
     )
 
@@ -73,7 +73,7 @@ const SingleReview =(props)=>{
       <img src={props.photo} alt={props.summary} height="250" />
       <p>Address: {props.address}</p>
     </div>
-    <p>review: {props.reviewText}</p>
+    <p>Review: {props.reviewText}</p>
     </React.Fragment>
   )
   }

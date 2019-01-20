@@ -10,7 +10,7 @@ function handleReviewSelect(){
   return(
     <React.Fragment >
     <h3 onClick={handleReviewSelect} className="summary-title">{title}</h3>
-    <img src={photo} alt={summary} width="300"  />
+    <img src={photo} alt={summary} width="300" onClick={handleReviewSelect} />
     <p>{summary}</p>
     </React.Fragment>
   )
