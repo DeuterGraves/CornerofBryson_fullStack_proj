@@ -14,7 +14,7 @@ const BusinessTagSelect = (props) =>{
 
   function handleTagSelect(event){
     props.onTagSelected(event.target.value);
-    // get the value of the event and callon tag selected from above.
+    // get the value of the event and call ontagselected from above.
   }
 
   return(
